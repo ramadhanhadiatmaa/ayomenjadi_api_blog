@@ -12,8 +12,8 @@ func Route(r *fiber.App) {
 	user := r.Group("/api")
 
 	user.Get("/", middlewares.Auth, controllers.Index)
-	user.Get("/e/:email", middlewares.Auth, controllers.Show)
+	user.Get("/:id", middlewares.Auth, controllers.Show)
 	user.Post("/", middlewares.Auth, controllers.Create)
-	user.Put("/:username", middlewares.Auth, controllers.Update)
+	user.Put("/:id", middlewares.Auth, controllers.Update)
 	/* user.Delete("/:username", middlewares.Auth, controllers.Delete) */
 }
